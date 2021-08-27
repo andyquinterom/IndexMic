@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+  shinyproxy:
+    image: openanalytics/shinyproxy:2.5.0
+    ports:
+      - '3838:80'
+    networks:
+      - shinyproxy
+    group_add:
+      - 964
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./shinyproxy-logs/server:/log
+      - ./shinyproxy-logs/container:/container-logs
+      - ./shinyproxy/application.yml:/opt/shinyproxy/application.yml
+      - ./shinyproxy/templates:/opt/shinyproxy/templates
+
+networks:
+  shinyproxy:
+    external: true
+    name: shinyproxy
+    driver: "bridge"
+  backend:
+    driver: "bridge"

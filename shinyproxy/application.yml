@@ -1,0 +1,47 @@
+proxy:
+  logo-url: /assets/img/texto.svg 
+  port: 80
+  title: Analítica Integrada Salud
+  container-log-path: /container-logs
+  authentication: simple
+  admin-groups: admins
+  template-path: /opt/shinyproxy/templates/2col
+  users:
+  - name: admin
+    password: admin
+    groups: admins
+  - name: user
+    password: user
+  docker:
+    internal-networking: true
+  specs:
+  - id: ais
+    display-name: Analítica Integrada Salud
+    description: Herramienta para el análisis y seguimiento de registros de prestación.
+    container-cmd: ["R", "-e", "shiny::runApp('/aisalud', host = '0.0.0.0', port = 3838)"]
+    container-image: aisalud
+    container-network: shinyproxy
+    container-env:
+      # Incluir las variables de ambiente necesarias para el funcionamiento de la aplicación
+      DATABASE_NAME:
+      DATABASE_USER:
+      DATABASE_PW:
+      DATABASE_HOST:
+      DATABASE_PORT:
+  - id: combd
+    display-name: ComBD
+    description: Herramienta para la preparación, segmentación y extracción de datos.
+    container-cmd: ["R", "-e", "shiny::runApp('/combd', host = '0.0.0.0', port = 3838)"]
+    container-image: aisalud_combd
+    container-network: shinyproxy
+    container-env:
+      # Incluir las variables de ambiente necesarias para el funcionamiento de la aplicación
+      DATABASE_NAME:
+      DATABASE_USER:
+      DATABASE_PW:
+      DATABASE_HOST:
+      DATABASE_PORT:
+      DATABASE_MAX_STORAGE:
+logging:
+  file:
+    name: /log/shinyproxy.log
