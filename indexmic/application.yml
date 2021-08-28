@@ -1,6 +1,6 @@
 proxy:
   logo-url: /assets/img/texto.svg 
-  port: 80
+  port: 8080
   title: Analítica Integrada Salud
   authentication: simple
   admin-groups: admins
@@ -27,7 +27,7 @@ proxy:
   - id: combd
     display-name: ComBD
     description: Herramienta para la preparación, segmentación y extracción de datos.
-    container-cmd: ["R", "-e", "shiny::runApp('/combd', host = '0.0.0.0', port = 3838)"]
+    container-cmd: ["R", "-e", "shiny::runApp('/aisalud_combd', host = '0.0.0.0', port = 3838)"]
     container-image: aisalud_combd:latest
     container-env:
       # Incluir las variables de ambiente necesarias para el funcionamiento de la aplicación
@@ -37,7 +37,4 @@ proxy:
       DATABASE_HOST:
       DATABASE_PORT:
       DATABASE_MAX_STORAGE:
-logging:
-  file:
-    name: shinyproxy.log
 

@@ -1,0 +1,13 @@
+[Unit]
+Description=IndexMic
+After=network.target
+
+[Service]
+ExecStart=java -jar /etc/indexmic/shinyproxy.jar
+WorkingDirectory=/etc/indexmic
+Restart=on-failure
+User=indexmic
+Group=indexmic
+
+[Install]
+WantedBy=multi-user.target
