@@ -1,7 +1,8 @@
 proxy:
   logo-url: /assets/img/texto.svg 
+  favicon-path: /assets/img/favicon.ico
   port: 8080
-  title: Analítica Integrada Salud
+  title: IndexMic
   authentication: simple
   admin-groups: admins
   template-path: ./templates/2col
@@ -12,7 +13,7 @@ proxy:
   - name: user
     password: user
   specs:
-  - id: ais
+  - id: aisalud
     display-name: Analítica Integrada Salud
     description: Herramienta para el análisis y seguimiento de registros de prestación.
     container-cmd: ["R", "-e", "shiny::runApp('/aisalud', host = '0.0.0.0', port = 3838)"]
@@ -24,7 +25,10 @@ proxy:
       DATABASE_PW:
       DATABASE_HOST:
       DATABASE_PORT:
-  - id: combd
+      CONF_PW:
+      # Ingresar TRUE si el usuario final es una IPS.
+      NT_MODO_IPS:
+  - id: aisalud_combd
     display-name: ComBD
     description: Herramienta para la preparación, segmentación y extracción de datos.
     container-cmd: ["R", "-e", "shiny::runApp('/aisalud_combd', host = '0.0.0.0', port = 3838)"]
