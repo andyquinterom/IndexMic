@@ -30,13 +30,15 @@ if test -f "/etc/indexmic/application.yml"; then
   case "$overwrite" in 
     s|S )
       echo "Se reemplazará la configuración.";
-      sudo cp -Ri ./indexmic /etc/;;
+      sudo cp -R ./indexmic /etc/;;
     n|N )
       echo "No se reemplazará, continuando con instalación.";
       sudo cp -R ./indexmic/templates /etc/indexmic/;
       sudo cp ./indexmic/shinyproxy.jar /etc/indexmic/shinyproxy.jar;;
     * ) echo "Ingresar sí (s) o no (n).";;
   esac
+else
+  sudo cp -R ./indexmic /etc/
 fi
 
 echo "Creando usuario indexmic..."
