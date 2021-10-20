@@ -62,7 +62,7 @@
 					<div class="card-box">
             <a th:href="@{/app/}+${app.id}+@{?sp_hide_navbar=true}">
               <div class="image-box">
-                <img class="img-responsive" th:src="@{/assets/img/{name}.svg(name=${app.id})}"></img>
+                <img class="img-responsive" th:src="@{/assets/img/{name}(name=${appLogos.get(app)})}"></img>
               </div>
             </a>
             <h3>
