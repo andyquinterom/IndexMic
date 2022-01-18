@@ -54,4 +54,16 @@ footer {
   text-align: center;
 }
 
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
+#applist {
+  width: 100vw;
+}
+
+#applist > div {
+ margin: 0 10px 0 10px;
+}
