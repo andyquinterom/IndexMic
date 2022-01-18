@@ -1,4 +1,4 @@
 secrets/
-indexmic/logs
-indexmic/shinyproxy.jar
+logs
+shinyproxy.jar
 *.DS_Store

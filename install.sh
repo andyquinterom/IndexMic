@@ -9,13 +9,15 @@ case "$choice" in
   * ) echo "Ingresar sí (s) o no (n).";;
 esac
 
+cd /etc/indexmic/
+
 echo "Descargando archivos necesarios de internet..."
-wget -O indexmic/shinyproxy.jar https://www.shinyproxy.io/downloads/shinyproxy-2.5.0.jar
+wget -O shinyproxy.jar https://www.shinyproxy.io/downloads/shinyproxy-2.6.0.jar
 
 echo "Verificando sumas de hash sha256..."
 
-HASHSUM="9edf2b6806cb9667504515dedfeb6ae089f1ff0980b993d28a1e0d447878f928"
-HASHSUM_VERIFY=$(sha256sum indexmic/shinyproxy.jar | grep -o "^[a-z0-9]*")
+HASHSUM="33e79a030294dc4dcb61c3030a53d239a964d6aa1122143d854a329c5c7a233b"
+HASHSUM_VERIFY=$(sha256sum shinyproxy.jar | grep -o "^[a-z0-9]*")
 
 if [ "$HASHSUM" = "$HASHSUM_VERIFY" ]; then
     echo "¡Sumas de hash verificadas!"
@@ -24,28 +26,10 @@ else
     exit 0
 fi
 
-echo "Copiando archivos..."
-if test -f "/etc/indexmic/application.yml"; then
-  read -p "Ya existe una configuración para IndexMic, ¿desea reemplazarla? (s/n)" overwrite
-  case "$overwrite" in 
-    s|S )
-      echo "Se reemplazará la configuración.";
-      sudo cp -R ./indexmic /etc/;;
-    n|N )
-      echo "No se reemplazará, continuando con instalación.";
-      sudo cp -R ./indexmic/templates /etc/indexmic/;
-      sudo cp ./indexmic/shinyproxy.jar /etc/indexmic/shinyproxy.jar;;
-    * ) echo "Ingresar sí (s) o no (n).";;
-  esac
-else
-  sudo cp -R ./indexmic /etc/
-fi
-
 echo "Creando usuario indexmic..."
 sudo useradd indexmic
 sudo usermod -aG docker indexmic 
 sudo chgrp indexmic /etc/indexmic
-
 
 echo "Creando servicio en systemd..."
 sudo cp indexmic.service /etc/systemd/system/indexmic.service
