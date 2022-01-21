@@ -6,6 +6,7 @@ proxy:
   authentication: simple
   admin-groups: admins
   template-path: ./templates/2col
+  container-log-path: ./logs
   users:
   - name: admin
     password: admin
@@ -44,3 +45,6 @@ proxy:
       DATABASE_PORT:
       DATABASE_MAX_STORAGE:
 
+logging:
+  file:
+    name: indexmic.log
