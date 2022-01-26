@@ -1,5 +1,6 @@
 secrets/
 logs/
 indexmic.log
+indexmic.log.*
 shinyproxy.jar
 *.DS_Store
