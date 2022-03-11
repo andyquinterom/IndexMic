@@ -8,19 +8,19 @@
       
       
       
-      <link rel="icon" href="/assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.6">
     
     
       
-        <title>My Docs</title>
+        <title>Conexión a PostgreSQL - My Docs</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.cd566b2a.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.cd566b2a.min.css">
       
         
-        <link rel="stylesheet" href="/assets/stylesheets/palette.e6a45f82.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
         
       
     
@@ -34,9 +34,9 @@
       
     
     
-      <link rel="stylesheet" href="/stylesheets/extra.css">
+      <link rel="stylesheet" href="../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("/",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -59,6 +59,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#conexion-a-postgresql" class="md-skip">
+          Saltar a contenido
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -69,7 +74,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Cabecera">
-    <a href="/." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href=".." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -88,7 +93,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Conexión a PostgreSQL
             
           </span>
         </div>
@@ -157,7 +162,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navegación" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+    <a href=".." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -174,11 +179,52 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="/conexion/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Conexión a PostgreSQL
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Conexión a PostgreSQL
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configuracion-dentro-de-postgresql" class="md-nav__link">
+    Configuración dentro de PostgreSQL
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -191,7 +237,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/auth/" class="md-nav__link">
+      <a href="../auth/" class="md-nav__link">
         Autenticación
       </a>
     </li>
@@ -209,8 +255,65 @@
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
-  <h1>404 - Not found</h1>
+                
 
+<h1 id="conexion-a-postgresql">Conexión a PostgreSQL</h1>
+<p>Las aplicaciones de Analítica Integrada Salud requieren conectarse
+a una base de datos PostgreSQL. IndexMic utilizará los siguientes
+parámetros para autenticarse con la base de datos:</p>
+<ul>
+<li><code>DATABASE_NAME</code>: El nombre de la base de datos;</li>
+<li><code>DATABASE_USER</code>: El usuario con acceso a la base de datos;</li>
+<li><code>DATABASE_PW</code>: La contraseña del usuario;</li>
+<li><code>DATABASE_HOST</code>: La dirección IP de la base de datos;</li>
+<li><code>DATABASE_PORT</code>: El puerto de la base de datos;</li>
+</ul>
+<p>Para permitir configurar una aplicación para que se conecte a una
+base de datos se haria se la siguiente manera:</p>
+<pre><code class="language-yml">proxy:
+  ...
+  specs:
+  - id: analisis
+    ...
+    container-env:
+      DATABASE_NAME: ais
+      DATABASE_USER: ais
+      DATABASE_PW: password
+      DATABASE_HOST: 172.17.0.1
+      DATABASE_PORT: 5432
+</code></pre>
+<p><strong>Notas</strong></p>
+<ul>
+<li><code>DATABASE_HOST</code> esta definido como <code>172.17.0.1</code> porque si el servicio de
+PostgreSQL corre en el host de IndexMic, los contenedores podrán
+conectarse a través de esa IP. Este
+<a href="https://dockertips.com/algo_sobre_redes">artículo</a> explora el tema con
+mayor profundidad.</li>
+</ul>
+<h2 id="configuracion-dentro-de-postgresql">Configuración dentro de PostgreSQL</h2>
+<p>Para permitir a las aplicaciones conectarse a la base de datos se deben
+configurar los accesos a la base de datos. Si la base de datos se encuentra en
+un servidor remoto, se debe configurar el acceso a la máquina que corre los
+contenedores.</p>
+<p>En el archivo <code>pg_hba.conf</code> se debe agregar una linea indicando que la
+dirección IP de la(s) maquina(s) puede conectarse. Ver la documentación
+para la versión específica de PostgreSQL utilizada.</p>
+<ul>
+<li><a href="https://www.postgresql.org/docs/14/auth-pg-hba-conf.html">Versión 14</a></li>
+<li><a href="https://www.postgresql.org/docs/13/auth-pg-hba-conf.html">Versión 13</a></li>
+<li><a href="https://www.postgresql.org/docs/12/auth-pg-hba-conf.html">Versión 12</a></li>
+<li><a href="https://www.postgresql.org/docs/11/auth-pg-hba-conf.html">Versión 11</a></li>
+<li><a href="https://www.postgresql.org/docs/10/auth-pg-hba-conf.html">Versión 10</a></li>
+</ul>
+<p><strong>Notas</strong></p>
+<ul>
+<li>Si la base de datos corre en la misma máquina que los contenedores
+se debe utilizar el siguiente rango por defecto: <code>172.17.0.0/16</code>.
+Este permitirá que los contenedores se conecten a través de
+la red creada por el Docker Daemon.</li>
+</ul>
+
+              
             </article>
           </div>
         </div>
@@ -218,6 +321,26 @@
       </main>
       
         <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Pie">
+      
+      
+        
+        <a href="../auth/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Autenticación" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              Autenticación
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -239,10 +362,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "/", "features": ["navigation.sections", "toc.integrate"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "/assets/javascripts/workers/search.22074ed6.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "toc.integrate"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "../assets/javascripts/workers/search.22074ed6.min.js"}</script>
     
     
-      <script src="/assets/javascripts/bundle.1514a9a0.min.js"></script>
+      <script src="../assets/javascripts/bundle.1514a9a0.min.js"></script>
       
     
   </body>
