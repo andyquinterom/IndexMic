@@ -1,0 +1,15 @@
+site_name: My Docs
+nav:
+  - Documentación:
+    - Configuración:
+      - Conexión a PostgreSQL: conexion.md
+      - Analítica Integrada Salud: aisalud.md
+      - Autenticación: auth.md
+extra_css:
+  - stylesheets/extra.css
+theme:
+  language: es
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
